@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header><h1>WEATHER APP</h1></header>
+    <div class="video-container">
+      <video autoplay muted loop src="images/pexels_videos_2782 (1080p).mp4"></video>
+    <div class="card">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Enter City Name"
+          id="txtPlace"
+          spellcheck="false"
+        />
+        <button><img src="images/search.png" /></button>
+      </div>
+      <div class="error">
+        <p>Invalid City Name!</p>
+      </div>
+      <div class="weather">
+        <img src="images/rain.png" class="weathericon" />
+        <h1 class="temprature">25°C</h1>
+        <h2 class="city">London</h2>
+        <div class="information">
+          <div class="col">
+            <img src="images/humidity.png" />
+            <div>
+              <p class="humidity">25%</p>
+              <p class="humidity1">Humidity</p>
+            </div>
+          </div>
+          <div class="col">
+            <img src="images/wind.png" />
+            <div>
+              <p class="wind">25km/h</p>
+              <p class="wind1">Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+      &copy; All Rights Reserved 2023 - Faizaan Khan |
+      <a href="mailto: @faizaankhanmfk7701@gmail.com" target="_blank">
+        Contact
+      </a>
+      |
+      <a
+        class="logo-twitter"
+        href="https://twitter.com/thefaizaankhaan"
+        target="_blank"
+        ><i class="bi bi-twitter-x"></i
+      ></a>
+
+      <a
+        class="logo-instagram"
+        href="https://instagram.com/thefaizaankhaan"
+        target="_blank"
+        ><i class="bi bi-instagram"></i
+      ></a>
+
+      <a
+        class="logo-linkedin"
+        href="https://linkedin.com/thefaizaankhan"
+        target="_blank"
+        ><i class="bi bi-linkedin"></i
+      ></a>
+
+      <a
+        class="logo-github"
+        href="https://github.com/thefaizaankhan"
+        target="_blank"
+        ><i class="bi bi-github"></i
+      ></a>
+    </footer>
+  
+    <script>
+      const apiKey = "678959e04809f8240bf28469f60e8abb";
+      const apiUrl =
+        "http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+      const searchBox = document.querySelector(".search input");
+      const searchBtn = document.querySelector(".search button");
+      const weatherIcon = document.querySelector(".weathericon");
+
+      async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + "&appid=" + apiKey);
+        console.log(response.status);
+        if (response.status == 404) {
+          document.querySelector(".error").style.display = "block";
+          document.querySelector(".weather").style.display = "none";
+        } else {
+          var data = await response.json();
+          console.log(data.main.temp);
+          document.querySelector(".city").innerHTML = data.name;
+          document.querySelector(".temprature").innerHTML = data.main.temp + "°C";
+          document.querySelector(".humidity").innerHTML =
+            data.main.humidity + "%";
+          document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+          if (data.weather[0].main == "Clouds") {
+            weatherIcon.src = "images/clouds.png";
+          } else if (data.weather[0].main == "Clear") {
+            weatherIcon.src = "images/clear.png";
+          } else if (data.weather[0].main == "Drizzle") {
+            weatherIcon.src = "images/drizzle.png";
+          } else if (data.weather[0].main == "Rain") {
+            weatherIcon.src = "images/rain.png";
+          } else if (data.weather[0].main == "Mist") {
+            weatherIcon.src = "images/mist.png";
+          } else if (data.weather[0].main == "Snow") {
+            weatherIcon.src = "images/snow.png";
+          }
+
+          document.querySelector(".weather").style.display = "block";
+          document.querySelector(".error").style.display = "none";
+        }
+      }
+
+      searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+      });
+
+      $(".search input").keyup(function (event) {
+        if (event.keyCode === 13) {
+          checkWeather(searchBox.value);
+        }
+      });
+      // checkWeather();
+    </script>
+
+  </body>
+</html>

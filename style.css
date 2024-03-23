@@ -1,0 +1,200 @@
+body {
+  /* background-color: white; */
+  font-family: sans-serif;
+  margin: 0px;
+  /* background-image: url(images/in-space-national-space-day.gif); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  height: 100vh;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header {
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: Segoe UI;
+  position: relative;
+  border-top: solid 1.5px white;
+  border-bottom: 1.5px solid white;
+  background-color: rgb(128, 0, 128);
+  height: 50px;
+}
+
+footer {
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: Segoe UI;
+  letter-spacing: 1px;
+  border-top: solid 1.5px white;
+  border-bottom: 1.5px solid white;
+  background-color: rgb(128, 0, 128);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.card {
+  width: 40%;
+  max-width: 350px;
+  margin: 5px auto;
+  padding: 20px 25px;
+  color: rgb(253, 253, 253);
+  text-align: center;
+  border-radius: 35px;
+  border-style: solid;
+  border-color: white;
+  border-width: 2px;
+  background-color: black;
+  position: absolute;
+  left: 33%;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  position: relative;
+  top: -30px;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  background: white;
+  color: black;
+  border-radius: 15px;
+  height: 20px;
+  flex: 1;
+  margin-right: 20px;
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  border-radius: 50%;
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  transition: all ease-out 0.2s;
+}
+
+button:active {
+  scale: 1.1;
+}
+
+.search button img {
+  width: 20px;
+}
+
+.weathericon {
+  width: 150px;
+  margin-top: 5px;
+}
+
+.weather h1 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 0px;
+}
+
+.weather h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: -30px;
+}
+
+.information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.humidity,
+.wind {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 550;
+}
+
+.humidity1,
+.wind1 {
+  margin-top: -15px;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+a {
+  color: white;
+  margin: 0 2px;
+}
+
+a:hover {
+  color: black;
+}
+
+.logo-twitter:hover {
+  color: black;
+}
+
+.logo-instagram:hover {
+  color: black;
+}
+
+.logo-linkedin:hover {
+  color: black;
+}
+
+.logo-github:hover {
+  color: black;
+}
+
+.weather {
+  display: none;
+}
+
+.error {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
